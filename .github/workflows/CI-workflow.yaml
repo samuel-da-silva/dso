@@ -33,6 +33,18 @@ jobs:
           python3 -m pip install semgrep
           if [ -f ./requirements.txt ]; then pip install -r ./requirements.txt; fi
 
+      - name: Install Semgrep
+        run: |
+          curl -o semgrep-agent.py -L https://semgrep.live/install
+          python3 semgrep-agent.py setup
+          rm semgrep-agent.py
+        shell: bash
+  
+      - name: Run Semgrep Scan
+        run: |
+          semgrep --config semgrep-rules.yml '**/*.py'
+        working-directory: ${{ github.workspace }}
+
       
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
