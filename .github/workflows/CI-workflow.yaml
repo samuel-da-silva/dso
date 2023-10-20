@@ -40,7 +40,7 @@ jobs:
   
       - name: Run Semgrep Scan
         run: |
-          semgrep --config semgrep-rules.yml '**/*.py'
+          semgrep '**/*.py'
         working-directory: ${{ github.workspace }}
 
       
