@@ -63,6 +63,7 @@ jobs:
   
       - name: Run Trivy Vulnerability Scan
         run: |
+          docker login -u sadasilva -p ${{ secrets.DOCKERHUB_TOKEN }}
           docker run --rm -v $(pwd):/scan aquasec/trivy sadasilva/devsecopslab:v18
         working-directory: ${{ github.workspace }}
 
