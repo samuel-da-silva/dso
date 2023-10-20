@@ -21,13 +21,10 @@ jobs:
 
   
       - name: Run Gitleaks Scan
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITLEAKS }}
         run: |
-          repo_url=$(git remote get-url origin)
-          if [[ ! $repo_url == *github.com* ]]; then
-            echo "Ce n'est pas un dépôt GitHub, pas de scan Gitleaks nécessaire."
-          else
-            docker run --rm -v "$(pwd):/code" zricethezav/gitleaks --access-token=${{ secrets.GITLEAKS }}
-          fi
+          docker run --rm -v "$(pwd):/code" zricethezav/gitleaks
 
           
       - name: Install dependencies 
