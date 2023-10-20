@@ -56,6 +56,16 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Install Trivy
+        run: |
+          docker pull aquasec/trivy
+        shell: bash
+  
+      - name: Run Trivy Vulnerability Scan
+        run: |
+          docker run --rm -v $(pwd):/scan aquasec/trivy --exit-code 1 --severity HIGH,CRITICAL sadasilva/devsecopslab:v18
+        working-directory: ${{ github.workspace }}
+
       - name: Push Image
         run: |
           docker tag test_${{ github.run_number }}:v1 sadasilva/devsecopslab:v${{ github.run_number }}
