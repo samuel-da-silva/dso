@@ -35,7 +35,7 @@ jobs:
 
       - name: Install Semgrep
         run: |
-          curl -o semgrep-agent.py -L https://semgrep.live/install
+          curl -o semgrep-agent.py -L https://semgrep.dev/get-semgrep.py
           python3 semgrep-agent.py setup
           rm semgrep-agent.py
         shell: bash
