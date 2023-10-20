@@ -63,7 +63,7 @@ jobs:
   
       - name: Run Trivy Vulnerability Scan
         run: |
-          docker run --rm -v $(pwd):/scan aquasec/trivy --severity HIGH,CRITICAL sadasilva/devsecopslab:v18
+          docker run --rm -v $(pwd):/scan aquasec/trivy sadasilva/devsecopslab:v18
         working-directory: ${{ github.workspace }}
 
       - name: Push Image
