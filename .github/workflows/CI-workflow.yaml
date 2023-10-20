@@ -21,10 +21,11 @@ jobs:
       
       - name: Checkout code
         uses: actions/checkout@v2
-
+  
       - name: Run Gitleaks Scan
         run: |
-          docker run --rm -v "$(pwd):/code" zricethezav/gitleaks --repo-path=/code --exclude-forks --access-token= ${{ secrets.GITLEAKS }}
+          docker run --rm -v "$(pwd):/code" zricethezav/gitleaks --repo-path=/code --exclude-forks --access-token=${{ secrets.GITLEAKS }}
+
           
       - name: Install dependencies 
         run: |
