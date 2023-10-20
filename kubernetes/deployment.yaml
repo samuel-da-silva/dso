@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: sadasilva/devsecopslab:v17
+          image: sadasilva/devsecopslab:v5
           resources:
             requests:
               memory: "50Mi"
