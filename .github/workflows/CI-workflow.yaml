@@ -18,9 +18,7 @@ jobs:
         with:
           ref: '${{ github.ref_name }}'
           token: ${{ secrets.GITLEAKS }}
-      
-      - name: Checkout code
-        uses: actions/checkout@v2
+
   
       - name: Run Gitleaks Scan
         run: |
