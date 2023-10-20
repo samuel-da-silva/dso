@@ -43,7 +43,7 @@ jobs:
 
       - name: Push Image
         run: |
-          docker tag test_${{ github.run_number }}:v1 hashko/devsecopslab:v${{ github.run_number }}
+          docker tag test_${{ github.run_number }}:v1 sadasilva/devsecopslab:v${{ github.run_number }}
           docker push sadasilva/devsecopslab:v${{ github.run_number }}
 
       - name: Checkout the ENV Repo
