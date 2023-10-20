@@ -37,12 +37,16 @@ jobs:
         run: |
           pip install semgrep
         shell: bash
+      
+      - name: Debug
+        run: |
+          ls -lR
+        working-directory: ${{ github.workspace }}
   
       - name: Run Semgrep Scan
         run: |
-          semgrep '**/*.py'
+          semgrep '*.py'
         working-directory: ${{ github.workspace }}
-
       
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
