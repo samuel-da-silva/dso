@@ -35,9 +35,7 @@ jobs:
 
       - name: Install Semgrep
         run: |
-          curl -o semgrep-agent.py -L https://semgrep.dev/get-semgrep.py
-          python3 semgrep-agent.py setup
-          rm semgrep-agent.py
+          pip install semgrep
         shell: bash
   
       - name: Run Semgrep Scan
